@@ -13,7 +13,9 @@ function implementDefineRequirePattern( baseObject ) {
         dependencies: dependencies,
         module: mod
       };
-    } else {};
+    } else {
+      throw new Error("Module " + name + " is already defined.");
+    };
   };
   base.require = function(name) {
     if(!(name in base.defined)) {
