@@ -6,7 +6,7 @@ function implementDefineRequirePattern( baseObject ) {
     if(!(typeof name === "string")) 
       throw new TypeError("Module's define method | Parameter 1 must be a string");
     if(!(dependencies instanceof Array)) 
-      throw new TypeError("Module's define method | Parameter 1 must be a string");
+      throw new TypeError("Module's define method | Parameter 2 must be an array");
     if(!(name in base.defined)) {
       base.defined[name] = {
         name: name,
