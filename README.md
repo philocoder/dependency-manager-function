@@ -23,15 +23,19 @@ var DI = {}; // DI stands for "Dependency Injection"
 
 implementDefineRequirePattern(DI);
 
-// Then, we can start playing:
+// Define dependencies:
 
 DI.define("module1", [], 100);
 
-DI.define("module2", ["module1"], function(mod1) {
-  return 100 + mod1;
+DI.define("module2", ["module1"], function() {
+  return 100 + DI.require("module1");
 });
 
+// Require dependencies:
+
 var result = DI.require("module2")();
+
+// Log results:
 
 console.log(result); // result is now 200
 
